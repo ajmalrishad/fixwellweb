@@ -1212,6 +1212,52 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+<!-- <script src="https://web3forms.com/client/script.js" async defer></script> -->
+ 
+<script>
+  document.querySelector('.php-email-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get the form data
+  const formData = new FormData(this);
+
+  // Send the form data to web3forms using fetch API
+  fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+      // Display SweetAlert message on successful form submission
+      Swal.fire({
+          title: 'Success!',
+          text: 'Your message has been sent. Thank you!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          showCancelButton: false,
+          showDenyButton: false
+      }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+              // Refresh the page and clear the form
+              location.reload();
+              this.reset();
+          }
+      })
+  })
+  .catch(error => {
+      // Display SweetAlert message on error
+      Swal.fire({
+          title: 'Error!',
+          text: 'There was an error in sending your message. Please try again later.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+      });
+  });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
