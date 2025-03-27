@@ -522,40 +522,54 @@ h6 {
 # WhatsApp Button
 --------------------------------------------------------------*/
 .whatsapp-icon-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip-text {
-  visibility: hidden;
-  width: 120px; /* Adjust as needed */
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px;
-  position: absolute;
-  bottom: 120%; /* Position above the button */
-  left: 50%;
-  margin-left: -100px; /* Center the tooltip */
-  opacity: 0;
-  transition: opacity 0.3s, bottom 0.3s; /* Smooth appearance */
-  z-index: 1000; /* Ensure it is above other content */
-}
-
-.whatsapp-icon-wrapper:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-  bottom: 130%; /* Adjust to position the tooltip correctly */
-}
-
-#whatsapp-icon {
   position: fixed;
-  bottom: 80px; /* Adjust as needed */
-  right: 20px; /* Adjust as needed */
+  bottom: 80px; /* Keep same position */
+  right: 10px; /* Keep same position */
   z-index: 1000; /* Ensures it is above other elements */
+  background: #25D366;
+  color: white;
+  padding: 6px 12px; /* Reduced padding */
+  border-radius: 30px; /* Adjusted for smaller size */
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Reduced gap between icon and text */
+  font-size: 13px; /* Reduced font size */
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+  transition: transform 0.3s ease-in-out, background 0.3s;
+  animation: bounce 1.5s infinite;
 }
 
+/* WhatsApp Icon */
+.whatsapp-img {
+  width: 30px; /* Reduced size */
+  height: 30px; /* Reduced size */
+  transition: transform 0.3s;
+}
+
+/* Hover Effects */
+.whatsapp-icon-wrapper:hover {
+  transform: scale(1.05); /* Subtle scaling */
+  background: #1EBE5B;
+}
+
+.whatsapp-icon-wrapper:hover .whatsapp-img {
+  transform: rotate(5deg); /* Slight rotation */
+}
+
+/* Tooltip Text */
+.tooltip-text {
+  display: n;
+}
+
+/* Keyframe Animation for Bouncing Effect */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); } /* Slightly smaller bounce */
+}
+
+/* Scroll to Top Button */
 #scroll-top {
   position: fixed;
   bottom: 20px; /* Adjust as needed */
